@@ -6,9 +6,16 @@
 /*   By: jongbpar <jongbpar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 19:30:41 by jongbpar          #+#    #+#             */
-/*   Updated: 2021/03/27 20:09:41 by jongbpar         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:13:48 by jongbpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_print_numbers(void)
 {
@@ -19,7 +26,7 @@ void	ft_print_numbers(void)
 	i = '0';
 	while (len > 0)
 	{
-		write(1, &i, 1);
+		ft_putchar(i);
 		i++;
 		len--;
 	}

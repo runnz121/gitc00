@@ -1,0 +1,11 @@
+
+
+
+void ft_is_negative(int c);
+
+int main(void)
+{
+	ft_is_negative(1);
+	ft_is_negative(0);
+	ft_is_negative(-1);
+}

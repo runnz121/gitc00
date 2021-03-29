@@ -6,23 +6,25 @@
 /*   By: jongbpar <jongbpar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 20:08:37 by jongbpar          #+#    #+#             */
-/*   Updated: 2021/03/27 22:01:53 by jongbpar         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:20:44 by jongbpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void	ft_is_negative(int n)
 {
-	int s;
-
-	s = &n;
-	if (s < 0)
+	if (n < 0)
 	{
-		write(1, "N", 1);
+		ft_putchar('N');
 	}
 	else
 	{
-		write(1, "P", 1);
+		ft_putchar('P');
 	}
 }
