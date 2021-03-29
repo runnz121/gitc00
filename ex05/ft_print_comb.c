@@ -5,51 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jongbpar <jongbpar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/27 22:02:53 by jongbpar          #+#    #+#             */
-/*   Updated: 2021/03/27 22:50:22 by jongbpar         ###   ########.fr       */
+/*   Created: 2021/03/29 01:44:42 by jongbpar          #+#    #+#             */
+/*   Updated: 2021/03/29 13:54:18 by jongbpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+void	ft_putchar(char c)
 {
-	int w;
-	int size;
+	write(1, &c, 1);
+}
 
-	size = 999;
-	w = 10;
-	while (size > 0)
+void	ft_print1(int a, int b, int c)
+{
+	ft_putchar(a);
+	ft_putchar(b);
+	ft_putchar(c);
+}
+
+void	ft_print(int a, int b, int c)
+{
+	if (a == '7' && b == '8' && c == '9')
 	{
-		if (w > 10 && w < 100)
-		{
-			if ((w / 10) == (w % 10))
-			{
-				w++;
-			}
-			else
-			{
-				write(1, &w, 3);
-				w++;
-			}
-		}
-		if (w > 100 && w < 999)
-		{
-			if (((w / 100) == ((w % 100) / 10)) || ((w / 10) == (w % 10)))
-			{
-				w++;
-			}
-			else
-			{
-				write(1, &w, 3);
-				w++;
-			}
-		size--;
-		}
+		ft_print1(a, b, c);
+	}
+	else
+	{
+		ft_putchar(a);
+		ft_putchar(b);
+		ft_putchar(c);
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
 }
 
-int	main(void)
+void	ft_print_comb(void)
 {
-	ft_print_comb();
+	int	a;
+	int	b;
+	int	c;
+
+	a = '0';
+	b = '1';
+	c = '2';
+	while (a <= '7')
+	{
+		while (b <= '8')
+		{
+			while (c <= '9')
+			{
+				ft_print(a, b, c);
+				c++;
+			}
+			c = ++b + 1;
+		}
+		b = ++a;
+	}
 }
